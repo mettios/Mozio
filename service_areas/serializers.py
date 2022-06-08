@@ -1,14 +1,13 @@
 from rest_framework import serializers
-from rest_framework_gis.serializers import GeoModelSerializer
+# from rest_framework_gis.serializers import GeoModelSerializer
 from .models import ServiceArea
 
 
-class ServiceAreaSerializer(GeoModelSerializer):
+class ServiceAreaSerializer(serializers.ModelSerializer):
     # provider_name = serializers.RelatedField(source='provider', read_only=True)
 
     class Meta:
         model = ServiceArea
-        geo_field = 'polygon'
         fields = [
             'name',
             'price',
